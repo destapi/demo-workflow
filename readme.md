@@ -1,5 +1,7 @@
 ## Github Actions Structure
 
+
+```bash
 Workflow
 |
 |----Job1 (Runner 1)
@@ -13,3 +15,4 @@ Workflow
 |     |----Step1: Action
 |     |----Step2: Shell command
 |     |----Step3: Action
+```
