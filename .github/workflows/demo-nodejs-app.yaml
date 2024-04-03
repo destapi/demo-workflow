@@ -63,7 +63,7 @@ jobs:
         package: .
 
     - name: start npm application
-      run: npm start
+      run: npm start&
   
   tag:
     runs-on: ubuntu-latest
