@@ -72,5 +72,16 @@ jobs:
     steps:
     - uses: cardinalby/git-tag-action@master
       env:
-        TAG: v1.2.5
+        TAG: v1.2.6
         GITHUB_TOKEN: ${{ secrets.GHA_DEMO_TOKEN }}
+
+  pull-request:
+    runs-on: ubuntu-latest
+    needs: tag
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: pull-request
+      run: |
+        gh_pr_up() { gh pr create $* || gh pr edit $* }
+        gh_pr_up --title "merge into main PR" --body "Automated PR develop to main"
