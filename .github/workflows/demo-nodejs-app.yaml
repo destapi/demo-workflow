@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repository: "https://github.com/destapi/gha-nodejs-app.git"
+        repository: "destapi/gha-nodejs-app.git"
         ref: main
 
     - name: Use Node.js ${{ matrix.node-version }}
