@@ -52,7 +52,7 @@ jobs:
     - name: Download artifact from build job
       uses: actions/download-artifact@v4
       with:
-        name: gha-nodejs-app
+        name: node-app
         
     - name: 'Deploy to Azure WebApp using publish profile credentials'
       id: deploy-to-webapp
@@ -67,9 +67,10 @@ jobs:
   
   tag:
     runs-on: ubuntu-latest
+    needs: deploy
 
     steps:
     - uses: cardinalby/git-tag-action@master
       env:
-        TAG: v1.2.4
+        TAG: v1.2.5
         GITHUB_TOKEN: ${{ secrets.GHA_DEMO_TOKEN }}
