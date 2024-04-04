@@ -2,7 +2,7 @@ name: create PR
 
 on:
     push:
-        branches: [develop]
+        branches: [merge-pr]
 
     workflow_dispatch:
 
@@ -17,7 +17,7 @@ jobs:
         steps:
         - uses: actions/checkout@v4
         - name: Create Pull Request
-          run: gh pr create -B main -H develop --title 'Merge develop into main' --body 'Created by Github action'
+          run: gh pr create -B main -H merge-pr --title 'Merge merge-pr into main' --body 'Created by Github action'
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
