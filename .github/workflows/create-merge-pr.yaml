@@ -1,0 +1,23 @@
+name: create PR
+
+on:
+    push:
+        branches: [develop]
+
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+              node-version: [18.x]
+
+        steps:
+        - uses: actions/checkout@v4
+        - name: Create Pull Request
+          run: gh pr create -B main -H develop --title 'Merge develop into main' --body 'Created by Github action'
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
