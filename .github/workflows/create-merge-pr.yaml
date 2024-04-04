@@ -12,8 +12,12 @@ jobs:
 
         steps:
         - uses: actions/checkout@v3
-        - name: pull-request
-          run: |
-            gh_pr_up() { gh pr create $* || gh pr edit $* }
-            gh_pr_up --title "merge into main PR" --body "Automated PR develop to main"
+        - name: Create Pull Request
+          uses: peter-evans/create-pull-request@v6
+          with:
+            commit-message: automated PR - merge into main
+            title: Sync up changes
+            body: Merge develop branch into main
+            branch: main
+            base: develop
  
